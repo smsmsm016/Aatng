@@ -18,7 +18,7 @@ def install_packages():
                 print(f"Failed to install {package}.")
 
 def configure_ngrok():
-    ngrok_token = "herer"
+    ngrok_token = "2rlMtAWvx65TISS8zn4gnr5lFKA_4ZBsvgk7JngmFwvxGTiVV"
     try:
         ngrok.set_auth_token(ngrok_token)
         print("ngrok token configured successfully.")
@@ -26,7 +26,7 @@ def configure_ngrok():
         print(f"Failed to configure ngrok: {str(e)}")
 
 def update_soul_txt(public_url):
-    with open("soul18.txt", "w") as file:
+    with open("sunny88.txt", "w") as file:
         file.write(public_url)
     print(f"New ngrok link saved in eagle3.txt")
 
@@ -40,7 +40,7 @@ def update_vps_soul_txt(public_url):
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         ssh.connect(vps_ip, username=vps_user, password=vps_password)
         sftp = ssh.open_sftp()
-        with sftp.open("soul18.txt", "w") as file:
+        with sftp.open("sunny88.txt", "w") as file:
             file.write(public_url)
         sftp.close()
         ssh.close()
@@ -90,7 +90,7 @@ def run_flask_app():
         if not ip or not port or not time:
             return jsonify({'error': 'Missing parameters'}), 400
 
-        command = f"./soul {ip} {port} {time}"
+        command = f"./soul {ip} {port} {time} 900"
         response = execute_command_async(command, time)
         return jsonify(response)
 
